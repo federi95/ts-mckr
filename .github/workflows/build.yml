@@ -25,6 +25,4 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "ts-mckr.tar.gz"
         
