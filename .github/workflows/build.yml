@@ -2,7 +2,8 @@ name: Build
 
 on:
   push:
-    branches: [main]
+    tags:
+    - '*'
 
 jobs:
   build:
@@ -23,8 +24,7 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
-      - uses: JasonEtco/build-and-tag-action@v2
+      - uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ github.event.release.tag_name }}
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+          artifacts: "ts-mckr.tar.gz"
+        
