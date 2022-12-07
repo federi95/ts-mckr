@@ -13,8 +13,8 @@ You can use this library to test your React (or other framework) components with
 - Built-in Typescript support
 - Works with all javascript frameworks
 - Create a full queryable database with:
-  -- generated fake data (thanks to FakerJS)
-  -- your data (json, text, and so on...)
+  - generated fake data (thanks to FakerJS)
+  - your data (json, text, and so on...)
 
 ## Installation
 
