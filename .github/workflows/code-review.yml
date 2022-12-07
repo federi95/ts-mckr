@@ -1,0 +1,24 @@
+name: Reviews
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.1.0
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3.5.1
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+      - uses: stefanoeb/eslint-action@1.0.2
+
+      - run: pnpm install
+      - run: eslint ./src --ext .js,.ts
+      - run: pnpm test
