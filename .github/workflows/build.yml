@@ -23,7 +23,7 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - name: Zip Folder
-        run: zip -r ${{ github.event.repository.name }}.zip . -x "src/*" "node_modules/*" ".github/*" ".eslintrc" ".npmrc" "*.config.ts" "*.config.js" "*.json" "pnpm-lock.yaml" ".prettierc" ".gitignore"
+        run: zip -r ${{ github.event.repository.name }}.zip . -x "src/*" ".git/*" "node_modules/*" ".github/*" ".eslintrc" ".npmrc" "*.config.ts" "*.config.js" "*.json" "pnpm-lock.yaml" ".prettierrc" "coverage/*" ".gitignore"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
