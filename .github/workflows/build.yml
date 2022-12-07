@@ -24,5 +24,7 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - uses: JasonEtco/build-and-tag-action@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
