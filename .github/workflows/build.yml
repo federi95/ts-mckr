@@ -23,9 +23,6 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          path: |
-            dist
-            !dist/**/*.md
+      - uses: JasonEtco/build-and-tag-action@v2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
