@@ -1,22 +1,27 @@
-
 # ts-mckr
 
 > A small library to fast create typed mock servers.
 
 It wraps [msw](https://github.com/mswjs/msw), so you can refer to the documentation [here](https://mswjs.io/docs/).\
 You can use this library to test your React (or other framework) components without the need of a backend server.
-## Features 
+
+[FakerJS](https://github.com/faker-js/faker) is used under the hood to provide data generation, full documentation [here](https://fakerjs.dev/).
+
+## Features
+
 - Built-in Typescript support
 - Works with all javascript frameworks
 
 ## Installation
+
 ```bash
 Soon available!
 ```
 
 ## Usage
 
-###  Create Handlers for the mock server
+### Create Handlers for the mock server
+
 ```ts
 // Import
 import dbUtils, { MockServer, MockServerInit } from 'ts-mckr';
@@ -38,7 +43,7 @@ const mockDb = {
 };
 
 const handlers = new MockServer()
-   // Database init
+  // Database init
   .createDB(mockDb)
   // Dataset injection, using fake data
   .createDataSet(
@@ -47,7 +52,7 @@ const handlers = new MockServer()
         {
           name: MockServer.getFakeData({ module: 'name', method: 'fullName', language: 'it' }),
           birthDate: MockServer.getFakeData({ module: 'date', method: 'birthdate' }),
-          
+
           /* or with object declaration (not recommended)
                         👇 we need this to get faker methods, if you have better solution, please create a pull request.
             name: <FakerData<'name'>>{ module: 'name', method: 'fullName', language: 'it' },
@@ -67,12 +72,16 @@ const handlers = new MockServer()
 // Create worker
 const worker = MockServerInit(...handlers);
 ```
-###  Start Mock server
+
+### Start Mock server
+
 ```ts
 // Use worker previously init
 await worker.start({ onUnhandledRequest: 'bypass' });
 ```
+
 ### Example using axios
+
 ```ts
 interface DummyUsers {
   id: number;
@@ -88,7 +97,8 @@ const listUsers = (params?: object) =>
 ```
 
 ## Options (optional)
-|               |   type  | default | required |
-|:-------------:|:-------:|:-------:|:--------:|
-|     repeat    |  number |    1    |     ❌    |
-| autoIncrement | boolean |   true  |     ❌    |
+
+|               |  type   | default | required |
+| :-----------: | :-----: | :-----: | :------: |
+|    repeat     | number  |    1    |    ❌    |
+| autoIncrement | boolean |  true   |    ❌    |
