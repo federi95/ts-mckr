@@ -44,6 +44,7 @@ class MockServer {
     try {
       this.checkDatabase();
     } catch (e) {
+      if (e instanceof Error) console.warn(e.message);
       return this;
     }
 
@@ -102,6 +103,7 @@ class MockServer {
 
       return handler;
     } catch (e) {
+      if (e instanceof Error) console.warn(e.message);
       return [];
     }
   }
