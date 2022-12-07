@@ -1,6 +1,6 @@
 name: Build
 
-on: 
+on:
   push:
     tags:
       - '*'
@@ -22,7 +22,11 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
+      - name: Zip Folder
+        run: zip -r ${{ github.event.repository.name }}.zip . -x "src/*" ".github/*" ".eslintrc" ".npmrc" "*.config.ts" "*.config.js" "*.json" "pnpm-lock.yaml" ".prettierc" ".gitignore"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/**/*
+          files: ${{ github.event.repository.name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
