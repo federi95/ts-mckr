@@ -24,7 +24,13 @@ import {
   VehicleModule,
   WordModule,
 } from '@faker-js/faker';
-import { ModelDefinitionValue, ModelDictionary, Value } from '@mswjs/data/lib/glossary';
+import {
+  Limit,
+  ModelDefinition,
+  ModelDefinitionValue,
+  ModelDictionary,
+  Value,
+} from '@mswjs/data/lib/glossary';
 
 import { FakerLocale } from './locale';
 
@@ -92,6 +98,6 @@ export type MockDatabaseData = {
 };
 
 export type MockDatabaseDataOptions = {
-  repeat: number;
+  repeat?: number;
   autoIncrement?: boolean;
 };
