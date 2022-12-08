@@ -17,8 +17,9 @@ jobs:
           version: 6.32.9
       - uses: actions/setup-node@v3.5.1
         with:
-          node-version: '16'
           cache: 'pnpm'
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.org'
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
