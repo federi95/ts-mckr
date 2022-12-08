@@ -2,8 +2,10 @@
 
 > A small library to fast create typed mock servers.
 
-It wraps [msw](https://github.com/mswjs/msw), so you can refer to the documentation [here](https://mswjs.io/docs/).\
+## Purpose
+
 You can use this library to test your React (or other framework) components without the need of a backend server.
+It wraps [msw](https://github.com/mswjs/msw), so you can refer to the documentation [here](https://mswjs.io/docs/).\
 
 [FakerJS](https://github.com/faker-js/faker) is used under the hood to provide data generation, full documentation [here](https://fakerjs.dev/).
 
@@ -19,10 +21,25 @@ You can use this library to test your React (or other framework) components with
 ## Installation
 
 ```bash
-Soon available!
+npm install -s msw ts-mckr
+or
+yarn add msw ts-mckr
+or
+pnpm install msw ts-mckr
 ```
 
 ## Usage
+
+### Initialize mswjs
+
+As said [here](#purpose) this library is essentially a msw wrap, so to work the Service Worker needs to be create.
+To do so, just run:
+
+```bash
+npx msw init ./public --save
+or
+pnpx msw init ./public --save
+```
 
 ### Create Handlers for the mock server
 

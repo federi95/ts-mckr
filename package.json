@@ -1,6 +1,6 @@
 {
   "name": "ts-mckr",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "author": "federi95",
   "license": "MIT",
@@ -33,6 +33,7 @@
     "url": "https://github.com/federi95/ts-mckr/issues"
   },
   "devDependencies": {
+    "@types/node": "^18.11.11",
     "@types/jest": "^29.2.4",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",

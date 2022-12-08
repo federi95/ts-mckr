@@ -1,4 +1,4 @@
-name: Build
+name: Deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.1.0
@@ -22,7 +22,14 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
-      - name: Zip Folder
+      - name: 'Publish package on NPM'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          git config user.name "federi95"
+          git config user.email "fedespam02@gmail.com"
+          pnpm publish
+      - name: Compress for release
         run: zip -r ${{ github.event.repository.name }}.zip . -x "src/*" ".git/*" "node_modules/*" ".github/*" ".eslintrc" ".npmrc" "*.config.ts" "*.config.js" "tsconfig.json" "pnpm-lock.yaml" ".prettierrc" "coverage/*" ".gitignore"
       - name: Release
         uses: softprops/action-gh-release@v1
