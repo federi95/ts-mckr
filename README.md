@@ -5,7 +5,8 @@
 ## Purpose
 
 You can use this library to test your React (or other framework) components without the need of a backend server.
-It wraps [msw](https://github.com/mswjs/msw), so you can refer to the documentation [here](https://mswjs.io/docs/).\
+
+It wraps [msw](https://github.com/mswjs/msw), so you can refer to the documentation [here](https://mswjs.io/docs/).
 
 [FakerJS](https://github.com/faker-js/faker) is used under the hood to provide data generation, full documentation [here](https://fakerjs.dev/).
 

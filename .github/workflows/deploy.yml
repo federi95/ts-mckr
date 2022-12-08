@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "federi95"
           git config user.email "fedespam02@gmail.com"
-          pnpm publish
+          pnpm publish --no-git-checks
       - name: Compress for release
         run: zip -r ${{ github.event.repository.name }}.zip . -x "src/*" ".git/*" "node_modules/*" ".github/*" ".eslintrc" ".npmrc" "*.config.ts" "*.config.js" "tsconfig.json" "pnpm-lock.yaml" ".prettierrc" "coverage/*" ".gitignore"
       - name: Release
