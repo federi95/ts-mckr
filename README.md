@@ -1,10 +1,10 @@
 # ts-mckr
 
-> A small library to fast create typed mock servers.
+> A small utility to fast create typed mock servers.
 
 ## Purpose
 
-You can use this library to test your React (or other framework) components without the need of a backend server.
+You can use this utility to test your React (or other framework) components without the need of a backend server.
 
 It wraps [msw](https://github.com/mswjs/msw), so you can refer to the documentation [here](https://mswjs.io/docs/).
 
@@ -33,7 +33,7 @@ pnpm install msw ts-mckr
 
 ### Initialize mswjs
 
-As said [here](#purpose) this library is essentially a msw wrap, so to work the Service Worker needs to be create.
+As said [here](#purpose) this utility is essentially a msw wrap, so to work the Service Worker needs to be create.
 To do so, just run:
 
 ```bash
@@ -72,6 +72,7 @@ const handlers = new MockServer()
     {
       users: [
         {
+          // name: 'John Doe', or
           name: MockServer.getFakeData({ module: 'name', method: 'fullName', language: 'it' }),
           birthDate: MockServer.getFakeData({ module: 'date', method: 'birthdate' }),
 
